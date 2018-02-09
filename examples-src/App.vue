@@ -8,12 +8,19 @@
                 </svg>
             </a>
             </div>
-            <div class="flex-none" style="margin-left: 10px;"><a href="https://github.com/chenxuan0000/vue-seamless-scroll"
-                                      class="white no-underline underline-hover">vue-seamless-scroll</a></div>
+            <div class="flex-none" style="margin-left: 10px;"><a
+                    href="https://github.com/chenxuan0000/vue-seamless-scroll"
+                    class="white no-underline underline-hover">vue-seamless-scroll</a></div>
         </div>
         <p class="pt5 f2" style="text-align: center;">无缝滚动demo</p>
+        <div style="text-align:center;">
+            <router-link to="/routerOne" tag="a">前往routerOne路由</router-link>
+            <router-link to="/routerTwo" tag="a" style="padding-left: 20px;">前往routerTwo路由</router-link>
+        </div>
         <keep-alive>
-            <router-view></router-view>
+            <transition name="fade" mode="out-in">
+                <router-view></router-view>
+            </transition>
         </keep-alive>
     </div>
 </template>
@@ -33,6 +40,22 @@
     #app {
         padding-bottom: 100px;
     }
+    .fade-enter {
+        opacity:0;
+        transform: translateX(100%);
+        &-active {
+            transition: all 0.2s;
+        }
+    }
+    .fade-leave {
+        opacity:1;
+        transform: translateX(0);
+        &-active {
+            opacity: 0;
+            transform: translateX(-100%);
+            transition: all 0.2s;
+        }
+    }
 
     .flex-fill {
         -ms-flex: 1 1;
@@ -50,6 +73,17 @@
                 font-size: 16px;
                 font-style: italic;
             }
+        }
+    }
+
+    .clearfix {
+        zoom: 1;
+        &:after {
+            display: block;
+            height: 0;
+            clear: both;
+            content: '.';
+            visibillity: hidden;
         }
     }
 
@@ -94,7 +128,7 @@
             width: 90%;
             margin: 20px auto;
             p {
-                margin-bottom:0;
+                margin-bottom: 0;
             }
         }
     }

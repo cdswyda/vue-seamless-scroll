@@ -1,43 +1,43 @@
 # vue-seamless-scroll 
-> A simple, Seamless scrolling for Vue.js
+> 一个简单的基于vue.js的无缝滚动
 
 [![Build Status](https://img.shields.io/appveyor/ci/gruntjs/grunt/master.svg) ![LICENSE MIT](https://img.shields.io/npm/l/express.svg)](https://www.npmjs.com/package/vue-seamless-scroll) ![](https://img.shields.io/npm/v/vue-seamless-scroll.svg)
-                                                                      
+                                         
 <p align="center">
     <img src="http://p2.qqyou.com/biaoqing/UploadPic/2013-2/1/2013020120565544702.gif" width="480"/>
-</p>                                             
+</p>                                            
 <p align="center">
-   🐾<a href="https://chenxuan0000.github.io/component-document/index_prod.html#/component/seamless-default">online demo</a> |
-   🌾 <a href="https://chenxuan0000.github.io/vue-seamless-scroll/index.html">sample demo</a> |
-   📘 <a href="./document/README.md">中文文档</a> 
+   🐾<a href="https://chenxuan0000.github.io/component-document/index_prod.html#/component/seamless-default">在线文档demo</a> |
+   🌾 <a href="https://chenxuan0000.github.io/vue-seamless-scroll/index.html" target="_blank">小demo</a> |
+   📘 <a href="../README.md">English Document</a>
 </p>
-                                        
-## Content
 
-- [**`Browser support`**](#browser-support)
-- [**`Features`**](#features)
-- [**`Installation`**](#installation)
-- [**`Usage`**](#usage)
-    - [**`ES6`**](#eS6)
-    - [**`Normal use`**](#normal-use)
-- [**`Configure`**](#configure)  
-- [**`Individual special configuration items`**](#individual-special-configuration-items) 
-- [**`Changelog`**](#changelog)
-- [**`Cares`**](#cares)
-- [**`Contribution`**](#contribution)
+## 内容
 
-## Browser support
+- [**`浏览器兼容性`**](#浏览器兼容性)
+- [**`功能特性`**](#功能特性)
+- [**`安装`**](#安装)
+- [**`使用`**](#使用)
+    - [**`ES6`**](#ES6)
+    - [**`普通的使用方法`**](#普通的使用方法)
+- [**`配置项默认值`**](#配置项默认值)   
+- [**`个别特殊配置项说明`**](#个别特殊配置项说明)
+- [**`历史版本`**](#历史版本)
+- [**`注意`**](#注意)
+- [**`贡献`**](#贡献)
+
+## 浏览器兼容性
 | [<img src="https://raw.githubusercontent.com/godban/browsers-support-badges/master/src/images/edge.png" alt="IE" width="16px" height="16px" />](http://godban.github.io/browsers-support-badges/)</br>IE | [<img src="https://raw.githubusercontent.com/godban/browsers-support-badges/master/src/images/firefox.png" alt="Firefox" width="16px" height="16px" />](http://godban.github.io/browsers-support-badges/)</br>Firefox | [<img src="https://raw.githubusercontent.com/godban/browsers-support-badges/master/src/images/chrome.png" alt="Chrome" width="16px" height="16px" />](http://godban.github.io/browsers-support-badges/)</br>Chrome | [<img src="https://raw.githubusercontent.com/godban/browsers-support-badges/master/src/images/safari.png" alt="Safari" width="16px" height="16px" />](http://godban.github.io/browsers-support-badges/)</br>Safari | [<img src="https://raw.githubusercontent.com/godban/browsers-support-badges/master/src/images/safari-ios.png" alt="iOS Safari" width="16px" height="16px" />](http://godban.github.io/browsers-support-badges/)</br>iOS | [<img src="https://raw.githubusercontent.com/godban/browsers-support-badges/master/src/images/chrome-android.png" alt="Chrome for Android" width="16px" height="16px" />](http://godban.github.io/browsers-support-badges/)</br>Android |
 |:---------:|:---------:|:---------:|:---------:|:---------:|:---------:|
 | IE9+ | &check;| &check; | &check; | &check; | &check; | &check;
 
-## Features
-* [x] base on requestAnimationFrame
-* [x] the configuration meets a variety of requirements.
-* [x] current support for seamless scrolling, single-step scrolling, and manual switching support for horizontal direction.
-* [x] ongoing maintenance
+## 功能特性
+* [x] 基于requestAnimationFrame实现
+* [x] 配置多满足多样需求
+* [x] 目前支持上下左右无缝滚动，单步滚动，以及支持水平方向的手动切换功能
+* [x] 持续维护迭代
 
-## Installation
+## 安装
 
 ### NPM
 
@@ -48,20 +48,20 @@ npm install vue-seamless-scroll --save
 ### CDN
 `https://cdn.jsdelivr.net/npm/vue-seamless-scroll@1.1.3/dist/vue-seamless-scroll.min.js`
 
-## Usage
+## 使用
 ### ES6
 
 ```js
 // **main.js**
-// 1.global install
+// 1.全局 install
 import Vue from 'vue'
 import scroll from 'vue-seamless-scroll'
 Vue.use(scroll)
 
-//or you can set componentName default componentName is vue-seamless-scroll
+// 或者你可以自己设置全局注册的组件名 默认注册的组件名是 vue-seamless-scroll
 Vue.use(scroll,{componentName: 'scroll-seamless'})
 
-// 2.single .vue import
+// 2.单个.vue文件局部注册
 <script>
   import vueSeamless from 'vue-seamless-scroll'
    export default {
@@ -125,10 +125,10 @@ Vue.use(scroll,{componentName: 'scroll-seamless'})
 
 ```
 
-### Normal use
+### 普通的使用方法
 
 Example:
-> Specific reference [test/test.html](https://github.com/chenxuan0000/vue-seamless-scroll/blob/master/test/test.html)
+> 详情的demo页面 [test/test.html](https://github.com/chenxuan0000/vue-seamless-scroll/blob/master/test/test.html)
 ```html
 <html>
 <head>
@@ -149,49 +149,50 @@ Example:
 </html>
 ```
 
-## Configure
+## 配置项默认值
 ```js
       defaultOption () {
         return {
-          step: 1, //the faster the rolling speed is faster
-          limitMoveNum: 5, //start seamless scrolling minimum data  //this.dataList.length
-          hoverStop: true, //mouse hover control is enabled
-          direction: 1, // 0 down || 1 up || 2 left || 3 right
-          openTouch: true, //open touch 
-          singleHeight: 0, //one single stop height(default zero is seamless) => direction 0/1
-          singleWidth: 0, //one single stop width(default zero is seamless) => direction 2/3
-          waitTime: 1000, //one single data stop wait time
-          switchOffset: 30, // the left and right buttons distance from the left and right sides (px)
-          autoPlay: true, // whether or not to automatically play the switch needs to be set to false
-          switchSingleStep: 134, //the size of a single step switch (px)
-          switchDelay: 400, // the time of a single step switch (ms)
-          switchDisabledClass: 'disabled'  // the className of the switch parent element that cannot be clicked.
-        }
+          step: 1, //数值越大速度滚动越快
+          limitMoveNum: 5, //开始无缝滚动的数据量  //this.dataList.length
+          hoverStop: true, //是否开启鼠标悬停stop
+          direction: 1, // 0向下 1向上 2向左 3向右
+          openTouch: true, //开启移动端touch
+          singleHeight: 0, //单步运动停止的高度(默认值0是无缝不停止的滚动) direction => 0/1
+          singleWidth: 0, //单步运动停止的宽度(默认值0是无缝不停止的滚动) direction => 2/3
+          waitTime: 1000, //单步运动停止的时间(默认值1000ms)
+          switchOffset: 30, // 左右 切换按钮 距离左右边距(px)
+          autoPlay: true, // *是否自动播放 使用switch切换时候需要置为false*
+          switchSingleStep: 134, //单步切换step(px)
+          switchDelay: 400, // 单步切换的时间(ms)
+          switchDisabledClass: 'disabled'  // 不可以点击状态的switch父元素的类名
       }
 ```
 
-## Individual special configuration items
+## 个别特殊配置项说明
 
-> 1.The outermost container needs to be set manually`width height overflow:hidden`
+> 1.最外层容器需要手动设置`width height overflow:hidden`
 
-> 2.The left and right seamless rolling needs to be set for the main content area (that is, the default slot slots)`css width`(otherwise, the actual width cannot be calculated correctly)
+> 2.左右的无缝滚动需要给主内容区域（即默认slot插槽提供）设定合适的`css width`属性(否则无法正确计算实际宽度)
 
-> 3.The step value is not recommended to be too small, otherwise there will be carton effect.
+> 3.step值不建议太小,不然会有卡顿效果
 
-> 4.You need to set when you need to manually switch left and right to scroll`autoPlay:false`,(The loop is not currently supported.)
+> 4.需要实现手动切换左右滚动的时候,必须设置`autoPlay:false`,目前不支持环路
 
-> 5.Provides `slot left-switch || right-switch` you can freely define the button styles you want. The outer div is positioned in the middle,the distance from both sides can be adjusted by the switchOffset parameter.
+> 5.提供了`slot left-switch || right-switch`可以自由定义需要的按钮样式 外层有div已经定位了位置居中,距离两边侧的距离可以通过switchOffset参数调整
 
-> 6.When the button reaches the boundary position, it automatically adds a definition to the state button that cannot be clicked.`switchDisabledClass: 'disabled'`,you can configure it as needed.
+> 6.当按钮到达边界位置,会自动为无法点击状态按钮加上定义的`switchDisabledClass: 'disabled'`,可以按需配置
 
-## Changelog
-See the GitHub [release history](https://github.com/chenxuan0000/vue-seamless-scroll/releases).
 
-## Cares
-If you want js to scroll seamlessly (without dependencies) you can switch to here.[seamscroll](https://github.com/chenxuan0000/seamless-scroll)。
+## 历史版本
+See the GitHub [历史版本](https://github.com/chenxuan0000/vue-seamless-scroll/releases).
 
-## Contribution
-Welcome to give some Suggestions and optimizations, and look forward to your `Pull Request`.
+## 注意
+如果你想要js无缝滚动(无依赖)你可以切换到这里[seamscroll](https://github.com/chenxuan0000/seamless-scroll)。
+
+
+## 贡献
+欢迎给出一些意见和优化，期待你的 `Pull Request`。
 
 ## License
 vue-seamless-scroll is open source and released under the [MIT License](LICENSE).
